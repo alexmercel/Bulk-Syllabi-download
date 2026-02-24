@@ -5,5 +5,4 @@ __pycache__/
 downloads/
 *.crdownload
 *.log
-run_logs.txt
-logs.txt
+*.txt
