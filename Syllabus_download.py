@@ -1,7 +1,24 @@
 import os
+import sys
 import time
 import urllib.request
 from urllib.parse import urlparse
+
+class Logger(object):
+    def __init__(self, filename="run.log"):
+        self.terminal = sys.stdout
+        self.log = open(filename, "a", encoding="utf-8")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+sys.stdout = Logger("run.log")
+sys.stderr = sys.stdout
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
